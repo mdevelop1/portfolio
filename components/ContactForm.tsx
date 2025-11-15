@@ -32,7 +32,7 @@ export default function ContactForm() {
   return (
     <div className="w-full">
       <h2 className="section-title">Kontakt</h2>
-      <p className="section-sub max-w-3xl text-neutral-600 mx-auto">Napisz do mnie – stwórzmy coś razem!</p>
+      <p className="section-sub text-neutral-600 mt-2">Napisz do mnie – stwórzmy coś razem!</p>
       <form onSubmit={onSubmit} className="mt-10 grid gap-6 md:grid-cols-2 w-full max-w-3xl mx-auto card p-8" noValidate>
         {/* Honeypot */}
         <input type="text" value={honeypot} onChange={e=>setHoneypot(e.target.value)} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />

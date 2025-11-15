@@ -52,6 +52,17 @@ export default function Portfolio() {
   const [selected, setSelected] = useState<Item | null>(null)
   const filtered = useMemo(() => active === 'all' ? ITEMS : ITEMS.filter(i => i.type === active), [active])
 
+  // responsive: determine columns (1 / 2 / 3) to show exactly one visible row initially
+  const [width, setWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 1024)
+  useEffect(() => {
+    const onResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  const cols = useMemo(() => (width >= 1024 ? 3 : width >= 640 ? 2 : 1), [width])
+  const [showAll, setShowAll] = useState(false)
+  const visible = useMemo(() => showAll ? filtered : filtered.slice(0, cols), [showAll, filtered, cols])
+
   // Close modal on ESC
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null) }
@@ -86,7 +97,7 @@ export default function Portfolio() {
       </div>
 
       <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((p, idx) => (
+        {visible.map((p, idx) => (
           <motion.button key={p.id}
             onClick={() => setSelected(p)}
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }}
@@ -102,6 +113,28 @@ export default function Portfolio() {
           </motion.button>
         ))}
       </div>
+
+      {/* Show more / less */}
+      {filtered.length > visible.length && !showAll && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-4 py-2 rounded-md border border-black text-black bg-white hover:bg-black/5"
+          >
+            Pokaż więcej
+          </button>
+        </div>
+      )}
+      {showAll && filtered.length > cols && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => setShowAll(false)}
+            className="px-4 py-2 rounded-md border border-black text-black bg-white hover:bg-black/5"
+          >
+            Pokaż mniej
+          </button>
+        </div>
+      )}
 
       {/* Modal */}
       {selected && (
