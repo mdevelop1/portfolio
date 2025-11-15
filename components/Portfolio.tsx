@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import dynamic from 'next/dynamic'
-const HeavySectionScene = dynamic(() => import('@/components/HeavySectionScene'), { ssr: false })
 import { motion } from 'framer-motion'
 
 type Item = {
@@ -63,7 +61,6 @@ export default function Portfolio() {
 
   return (
     <div className="relative">
-      <HeavySectionScene variant="knot" baseZ={8.6} offsetX={-1.0} parallax intensity={0.35} />
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
           <h2 className="section-title">Portfolio / Projekty</h2>

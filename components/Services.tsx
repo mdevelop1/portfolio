@@ -1,6 +1,3 @@
-import dynamic from 'next/dynamic'
-const HeavySectionScene = dynamic(() => import('@/components/HeavySectionScene'), { ssr: false })
-
 export default function Services() {
   const services = [
     {
@@ -22,7 +19,6 @@ export default function Services() {
 
   return (
     <div className="relative">
-      <HeavySectionScene variant="twisted" baseZ={8.8} offsetX={1.4} />
       <h2 className="section-title">Usługi / Co robię</h2>
       <p className="section-sub">Minimalistycznie, szybko i nowocześnie</p>
 

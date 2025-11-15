@@ -98,8 +98,9 @@ function Variant({ v }: { v: HeavyVariant }) {
   return <Capsule />
 }
 
-export default function HeavySectionScene({ variant = 'knot', baseZ = 8.2, stars = true, className, offsetX = 0, parallax = false, intensity = 0.4 }: { variant?: HeavyVariant; baseZ?: number; stars?: boolean; className?: string; offsetX?: number; parallax?: boolean; intensity?: number }) {
+export default function HeavySectionScene({ variant = 'knot', baseZ = 8.2, stars = true, className, offsetX = 0, parallax = false, intensity = 0.4, placeholderSrc, forceImage = false, imageSrc }: { variant?: HeavyVariant; baseZ?: number; stars?: boolean; className?: string; offsetX?: number; parallax?: boolean; intensity?: number; placeholderSrc?: string; forceImage?: boolean; imageSrc?: string }) {
   const [enabled, setEnabled] = useState(true)
+  const [ready, setReady] = useState(false)
   useEffect(() => {
     const check = () => setEnabled(window.innerWidth >= 768)
     check()
@@ -107,11 +108,41 @@ export default function HeavySectionScene({ variant = 'knot', baseZ = 8.2, stars
     return () => window.removeEventListener('resize', check)
   }, [])
 
-  if (!enabled) return null
+  if (!enabled && !forceImage) return null
+
+  function FirstFrame({ onReady }: { onReady: () => void }) {
+    const called = useRef(false)
+    useFrame(() => {
+      if (!called.current) {
+        called.current = true
+        // signal after first rendered frame
+        onReady()
+      }
+    })
+    return null
+  }
+
+  // IMAGE/GIF MODE
+  if (forceImage && imageSrc) {
+    return (
+      <div className={`absolute inset-0 -z-10 pointer-events-none ${className ?? ''}`}>
+        <img src={imageSrc} alt="background" className="absolute inset-0 w-full h-full object-cover" style={{ pointerEvents: 'none' }} />
+      </div>
+    )
+  }
 
   return (
     <div className={`absolute inset-0 -z-10 pointer-events-none ${className ?? ''}`}>
-      <Canvas camera={{ position: [0, 0, baseZ], fov: 55 }} shadows>
+      {/* Placeholder overlay (e.g., GIF) shown until first frame renders */}
+      {placeholderSrc && (
+        <img
+          src={placeholderSrc}
+          alt="loading"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${ready ? 'opacity-0' : 'opacity-100'}`}
+          style={{ pointerEvents: 'none' }}
+        />
+      )}
+      <Canvas camera={{ position: [0, 0, baseZ], fov: 55 }} shadows onCreated={() => { /* ensure mount */ }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[4, 6, 6]} intensity={0.8} castShadow />
         <directionalLight position={[-6, -3, -4]} intensity={0.3} />
@@ -124,6 +155,7 @@ export default function HeavySectionScene({ variant = 'knot', baseZ = 8.2, stars
         <Environment preset="studio" />
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         <CameraRig baseZ={baseZ} fov={55} parallax={parallax} intensity={intensity} />
+        <FirstFrame onReady={() => setReady(true)} />
       </Canvas>
     </div>
   )

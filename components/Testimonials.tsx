@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
-const HeavySectionScene = dynamic(() => import('@/components/HeavySectionScene'), { ssr: false })
 
 type Testimonial = { quote: string; author: string; role?: string; rating?: number }
 const DATA: Testimonial[] = [
@@ -24,7 +22,6 @@ export default function Testimonials() {
   const t = DATA[idx]
   return (
     <div className="relative">
-      <HeavySectionScene variant="capsule" baseZ={8.8} />
       <h2 className="section-title">Opinie</h2>
       <p className="section-sub">Co mówią klienci i testerzy</p>
 

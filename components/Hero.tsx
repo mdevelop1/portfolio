@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
-const ThreeHeroScene = dynamic(() => import('@/components/ThreeHeroScene'), { ssr: false })
 
 export default function Hero() {
   const scrollToId = (id: string) => {
@@ -10,7 +8,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      <ThreeHeroScene />
       {/* Top-right actions */}
       <div className="absolute top-6 right-6 flex items-center gap-3">
         <a
