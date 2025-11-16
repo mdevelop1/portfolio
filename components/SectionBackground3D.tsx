@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic'
 import { useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
-// Small lightweight 3D background for sections. Different variants render different shapes.
 export type SectionBGVariant = 'rings' | 'sphere' | 'boxes'
 
 function Rings() {

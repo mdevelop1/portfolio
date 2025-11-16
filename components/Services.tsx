@@ -6,14 +6,12 @@ export default function Services() {
   
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    // Check if we're on the home page
     if (router.pathname === '/') {
       const contactSection = document.getElementById('contact');
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If not on home page, navigate to home page with hash
       router.push('/#contact');
     }
   };

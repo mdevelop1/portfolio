@@ -20,7 +20,6 @@ const Testimonials: React.FC = () => {
   const prev = () => setIdx((i: number) => (i - 1 + DATA.length) % DATA.length);
   const next = () => setIdx((i: number) => (i + 1) % DATA.length);
 
-  // autoplay every 5s, pause on hover
   useEffect(() => {
     if (hover) return;
     const timer = setInterval(() => {

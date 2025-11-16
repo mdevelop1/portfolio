@@ -6,7 +6,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { name, email, message } = req.body || {}
     if (!name || !email || !message) return res.status(400).json({ ok: false, error: 'Missing fields' })
 
-    // Send to Discord webhook
     const webhookUrl = 'https://discord.com/api/webhooks/1439360643659468842/Zq8t0MXSJEov5zZSSWRDIPBpUKWlWJ21ID0sH6xto5SYZ0ymmyPl2sYcCs50gyS9dK4o'
     const content = `📬 Nowa wiadomość kontaktowa:\n\n**Imię:** ${name}\n**Email:** ${email}\n**Wiadomość:**\n${message}`
     const resp = await fetch(webhookUrl, {

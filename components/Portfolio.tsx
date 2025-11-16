@@ -12,26 +12,22 @@ type Item = {
 }
 
 const ITEMS: Item[] = [
-  // Web
+
   { id: 'w1', type: 'web', name: 'Next.js SaaS', stack: 'Next.js, TS, Tailwind', img: '/images/portfolio/placeholder.svg', desc: 'Landing + Dashboard', link: '#' },
   { id: 'w2', type: 'web', name: 'Portfolio Website', stack: 'Next.js, Framer Motion', img: '/images/portfolio/placeholder.svg', desc: 'Animowany one‑pager', link: '#' },
   { id: 'w3', type: 'web', name: 'E‑commerce Store', stack: 'Next.js, Stripe', img: '/images/portfolio/placeholder.svg', desc: 'Sklep z płatnościami', link: '#' },
 
-  // Mobile
   { id: 'm1', type: 'mobile', name: 'Fitness Tracker', stack: 'React Native, Expo', img: '/images/portfolio/placeholder.svg', desc: 'Śledzenie aktywności', link: '#' },
   { id: 'm2', type: 'mobile', name: 'Chat App', stack: 'React Native, Firebase', img: '/images/portfolio/placeholder.svg', desc: 'Czat w czasie rzeczywistym', link: '#' },
 
-  // Desktop
   { id: 'd1', type: 'desktop', name: 'Markdown Editor', stack: 'Electron, React', img: '/images/portfolio/placeholder.svg', desc: 'Edytor z podglądem', link: '#' },
   { id: 'd2', type: 'desktop', name: 'Screenshot Tool', stack: 'Electron, TS', img: '/images/portfolio/placeholder.svg', desc: 'Zrzuty ekranu + OCR', link: '#' },
 
-  // Minecraft
   { id: 'mc1', type: 'mc', name: 'MC Plugin: Economy', stack: 'Spigot/Paper 1.20', img: '/images/portfolio/placeholder.svg', desc: 'Ekonomia na serwerze', link: '#' },
   { id: 'mc2', type: 'mc', name: 'MC Plugin: Teleport', stack: 'Spigot 1.20', img: '/images/portfolio/placeholder.svg', desc: 'TPA / RTP / Home', link: '#' },
   { id: 'mc3', type: 'mc', name: 'Datapack: Custom Recipes', stack: 'Vanilla 1.20', img: '/images/portfolio/placeholder.svg', desc: 'Nowe przepisy i balans', link: '#' },
   { id: 'mc4', type: 'mc', name: 'MC Plugin: AntiCheat', stack: 'Paper 1.20', img: '/images/portfolio/placeholder.svg', desc: 'Wykrywanie cheatów', link: '#' },
 
-  // Discord
   { id: 'dc1', type: 'discord', name: 'Discord Bot: Mod', stack: 'Node, discord.js', img: '/images/portfolio/placeholder.svg', desc: 'Moderacja + automatyzacja', link: '#' },
   { id: 'dc2', type: 'discord', name: 'Discord Bot: Music', stack: 'Node, discord.js', img: '/images/portfolio/placeholder.svg', desc: 'Muzyka i playlisty', link: '#' },
   { id: 'dc3', type: 'discord', name: 'Discord Bot: Analytics', stack: 'Node, TS', img: '/images/portfolio/placeholder.svg', desc: 'Statystyki serwera', link: '#' },
@@ -52,7 +48,6 @@ export default function Portfolio() {
   const [selected, setSelected] = useState<Item | null>(null)
   const filtered = useMemo(() => active === 'all' ? ITEMS : ITEMS.filter(i => i.type === active), [active])
 
-  // responsive: determine columns (1 / 2 / 3) to show exactly one visible row initially
   const [width, setWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 1024)
   useEffect(() => {
     const onResize = () => setWidth(window.innerWidth)
@@ -63,7 +58,6 @@ export default function Portfolio() {
   const [showAll, setShowAll] = useState(false)
   const visible = useMemo(() => showAll ? filtered : filtered.slice(0, cols), [showAll, filtered, cols])
 
-  // Close modal on ESC
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null) }
     window.addEventListener('keydown', onKey)
