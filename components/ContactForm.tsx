@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import { submitContact } from '@/utils/api'
 
-export default function ContactForm() {
+const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -21,7 +21,7 @@ export default function ContactForm() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (honeypot) return // bot spam
+    if (honeypot) return 
     if (!validate()) return
     setState('loading')
     const ok = await submitContact({ name, email, message })
@@ -30,7 +30,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full" ref={ref}>
       <h2 className="section-title">Kontakt</h2>
       <p className="section-sub text-neutral-600 mt-2">Napisz do mnie – stwórzmy coś razem!</p>
       <form onSubmit={onSubmit} className="mt-10 grid gap-6 md:grid-cols-2 w-full max-w-3xl mx-auto card p-8" noValidate>
@@ -178,4 +178,6 @@ export default function ContactForm() {
       </form>
     </div>
   )
-}
+})
+
+export default ContactForm
