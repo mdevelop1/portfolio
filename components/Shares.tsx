@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { cn } from "@/utils/cn";
 
 type ShareLogo = {
   name: string;
@@ -16,16 +17,16 @@ const SHARES_LOGOS: ShareLogo[] = [
     alt: "M_Develop logo",
   },
   {
-    name: "Projekt 2",
-    href: "#",
-    logoSrc: "/images/portfolio/placeholder.svg",
-    alt: "Projekt 2 logo",
+    name: " Virifo",
+    href: "https://virifo.pl/",
+    logoSrc: "/images/portfolio/virifo.png",
+    alt: "Virifo logo",
   },
   {
-    name: "Projekt 3",
-    href: "#",
-    logoSrc: "/images/portfolio/placeholder.svg",
-    alt: "Projekt 3 logo",
+    name: "HyperGrid",
+    href: "https://hypergrid.pl/",
+    logoSrc: "/images/portfolio/hypergrid.png",
+    alt: "HyperGrid logo",
   },
 ];
 
@@ -38,7 +39,13 @@ export default function Shares() {
       <TooltipProvider>
         <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
           {SHARES_LOGOS.map((item) => (
-            <Card key={item.name} className="group flex items-center justify-center p-6 bg-white hover:shadow-md transition-shadow">
+            <Card
+              key={item.name}
+              className={cn(
+                "group flex items-center justify-center p-6 hover:shadow-md transition-shadow",
+                item.name === "HyperGrid" ? "bg-zinc-900" : "bg-white"
+              )}
+            >
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
@@ -51,7 +58,10 @@ export default function Shares() {
                     <img
                       src={item.logoSrc}
                       alt={item.alt || item.name}
-                      className="h-12 w-auto opacity-90 transition-all group-hover:opacity-100 group-hover:scale-[1.03]"
+                      className={cn(
+                        "w-auto opacity-90 transition-all group-hover:opacity-100 group-hover:scale-[1.03]",
+                        item.name === "M_Develop" ? "h-16 sm:h-20" : "h-12"
+                      )}
                     />
                   </a>
                 </TooltipTrigger>
