@@ -37,7 +37,7 @@ export default function Hero() {
       <div className="section relative text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <div className="inline-flex items-center justify-center mb-4">
-            <img src="/images/logo.svg" alt="M_Develop" className="w-16 h-16" />
+            <img src="/images/logo.png" alt="M_Develop" className="w-16 h-16" />
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mix-blend-difference">
             Tworzę aplikacje webowe, mobilne, desktopowe, pluginy Minecraft & boty Discord

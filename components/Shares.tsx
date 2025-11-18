@@ -13,12 +13,12 @@ const SHARES_LOGOS: ShareLogo[] = [
   {
     name: "M_Develop",
     href: "https://mdevelop.netlify.app/",
-    logoSrc: "/images/logo.svg",
+    logoSrc: "/images/logo.png",
     alt: "M_Develop logo",
   },
   {
     name: " Virifo",
-    href: "https://virifo.pl/",
+    href: "https://virifo.com/",
     logoSrc: "/images/portfolio/virifo.png",
     alt: "Virifo logo",
   },

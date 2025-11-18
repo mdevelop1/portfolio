@@ -3,8 +3,7 @@ export default function Footer() {
     <footer className="mt-24 py-10 border-t border-neutral-200">
       <div className="section flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <img src="/images/logo.svg" className="w-8 h-8" alt="M_Develop" />
-          <span className="text-neutral-500">© 2025 Mateusz Dymowski</span>
+          <img src="/images/logo.png" className="w-8 h-8" alt="M_Develop" />
         </div>
         <div className="flex gap-4 text-neutral-600">
           <a href="#about" className="hover:text-black">O mnie</a>
