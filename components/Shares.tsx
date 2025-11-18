@@ -12,7 +12,7 @@ type ShareLogo = {
 const SHARES_LOGOS: ShareLogo[] = [
   {
     name: "M_Develop",
-    href: "https://mdevelop.netlify.app/",
+    href: "https://m-develop.netlify.app/",
     logoSrc: "/images/logo.svg",
     alt: "M_Develop logo",
   },
