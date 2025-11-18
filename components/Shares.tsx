@@ -18,7 +18,7 @@ const SHARES_LOGOS: ShareLogo[] = [
   },
   {
     name: " Virifo",
-    href: "https://virifo.pl/",
+    href: "https://virifo.com/",
     logoSrc: "/images/portfolio/virifo.png",
     alt: "Virifo logo",
   },
