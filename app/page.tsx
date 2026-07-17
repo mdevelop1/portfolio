@@ -46,7 +46,7 @@ export default function Home() {
       });
 
     // SECTION REVEAL
-    gsap.utils.toArray("section").forEach((section: HTMLElement) => {
+    gsap.utils.toArray<HTMLElement>("section").forEach((section) => {
       gsap.from(section, {
         scrollTrigger: {
           trigger: section,
@@ -59,7 +59,7 @@ export default function Home() {
     });
 
     // CARDS
-    gsap.utils.toArray(".card").forEach((card: HTMLElement, index: number) => {
+    gsap.utils.toArray<HTMLElement>(".card").forEach((card, index) => {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
