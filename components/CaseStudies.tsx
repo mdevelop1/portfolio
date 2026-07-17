@@ -275,6 +275,9 @@ export default function CaseStudies() {
     // Magnetic button effect
       const makeMagnetic = (el: HTMLElement) => {
       const wrapper = el.parentElement;
+      const makeMagnetic = (el: HTMLElement) => {
+      const wrapper = el.parentElement;
+      if (!wrapper) return; // add this guard
       wrapper.addEventListener('mousemove', (e) => {
         const { left, top, width, height } = wrapper.getBoundingClientRect();
         const x = (e.clientX - left) / width - 0.5;
