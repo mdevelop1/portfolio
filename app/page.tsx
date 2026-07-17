@@ -46,7 +46,7 @@ export default function Home() {
       });
 
     // SECTION REVEAL
-    gsap.utils.toArray<HTMLElement>("section").forEach((section) => {
+    gsap.utils.toArray<HTMLElement>("section").forEach((section, _index, _array) => {
       gsap.from(section, {
         scrollTrigger: {
           trigger: section,
@@ -59,7 +59,7 @@ export default function Home() {
     });
 
     // CARDS
-    gsap.utils.toArray<HTMLElement>(".card").forEach((card, index) => {
+    gsap.utils.toArray<HTMLElement>(".card").forEach((card, _index, _array) => {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
@@ -67,7 +67,7 @@ export default function Home() {
         },
         y: 60,
         duration: 0.8,
-        delay: index * 0.1,
+        delay: _index * 0.1,
       });
     });
 
@@ -81,7 +81,7 @@ export default function Home() {
     });
 
     // TEXT REVEAL ANIMATION
-    gsap.utils.toArray("p, h2, h3, .title").forEach((text: HTMLElement) => {
+    gsap.utils.toArray<HTMLElement>("p, h2, h3, .title").forEach((text, _index, _array) => {
       gsap.from(text, {
         scrollTrigger: {
           trigger: text,
@@ -94,7 +94,7 @@ export default function Home() {
     });
 
     // MAGNETIC BUTTON
-    document.querySelectorAll(".btn").forEach((btn) => {
+    document.querySelectorAll(".btn").forEach((btn, _index, _arr) => {
       const button = btn as HTMLElement;
 
       button.addEventListener("mousemove", (e) => {
@@ -134,7 +134,7 @@ export default function Home() {
 
       // ACTIVE NAV SECTION
       const sections = document.querySelectorAll('section[id]');
-      sections.forEach((section) => {
+      sections.forEach((section, _index, _arr) => {
         const sectionEl = section as HTMLElement;
         const sectionTop = sectionEl.offsetTop - 200;
         const sectionHeight = sectionEl.offsetHeight;
@@ -151,7 +151,7 @@ export default function Home() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger, _index, _arr) => trigger.kill());
     };
   }, []);
 
