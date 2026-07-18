@@ -119,34 +119,42 @@ export default function Home() {
     });
 
     // SCROLL PROGRESS BAR
+    let ticking = false;
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
 
-      const progressBar = document.querySelector('.scroll-progress') as HTMLElement;
-      if (progressBar) {
-        progressBar.style.width = scrollPercent + '%';
+          const progressBar = document.querySelector('.scroll-progress') as HTMLElement;
+          if (progressBar) {
+            progressBar.style.width = scrollPercent + '%';
+          }
+
+          // BACK TO TOP BUTTON
+          setShowBackToTop(scrollTop > 500);
+
+          // ACTIVE NAV SECTION
+          const sections = document.querySelectorAll('section[id]');
+          sections.forEach((section, _index, _arr) => {
+            const sectionEl = section as HTMLElement;
+            const sectionTop = sectionEl.offsetTop - 200;
+            const sectionHeight = sectionEl.offsetHeight;
+            const sectionId = sectionEl.getAttribute('id');
+
+            if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+              setActiveSection(sectionId || '');
+            }
+          });
+
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      // BACK TO TOP BUTTON
-      setShowBackToTop(scrollTop > 500);
-
-      // ACTIVE NAV SECTION
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach((section, _index, _arr) => {
-        const sectionEl = section as HTMLElement;
-        const sectionTop = sectionEl.offsetTop - 200;
-        const sectionHeight = sectionEl.offsetHeight;
-        const sectionId = sectionEl.getAttribute('id');
-
-        if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-          setActiveSection(sectionId || '');
-        }
-      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial call
 
     return () => {
