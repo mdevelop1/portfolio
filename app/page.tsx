@@ -47,7 +47,7 @@ export default function Home() {
 
     // SECTION REVEAL
     gsap.utils.toArray<HTMLElement>("section").forEach((section, _index, _array) => {
-      gsap.from(section, {
+      void gsap.from(section, {
         scrollTrigger: {
           trigger: section,
           start: "top 80%",
@@ -60,7 +60,7 @@ export default function Home() {
 
     // CARDS
     gsap.utils.toArray<HTMLElement>(".card").forEach((card, _index, _array) => {
-      gsap.from(card, {
+      void gsap.from(card, {
         scrollTrigger: {
           trigger: card,
           start: "top 85%",
@@ -72,7 +72,7 @@ export default function Home() {
     });
 
     // PARALLAX NUMBER
-    gsap.to(".hero-number", {
+    void gsap.to(".hero-number", {
       scrollTrigger: {
         trigger: ".hero",
         scrub: true,
@@ -82,7 +82,7 @@ export default function Home() {
 
     // TEXT REVEAL ANIMATION
     gsap.utils.toArray<HTMLElement>("p, h2, h3, .title").forEach((text, _index, _array) => {
-      gsap.from(text, {
+      void gsap.from(text, {
         scrollTrigger: {
           trigger: text,
           start: "top 90%",
@@ -102,7 +102,7 @@ export default function Home() {
         const x = (e as MouseEvent).clientX - rect.left - rect.width / 2;
         const y = (e as MouseEvent).clientY - rect.top - rect.height / 2;
 
-        gsap.to(button, {
+        void gsap.to(button, {
           x: x * 0.3,
           y: y * 0.3,
           duration: 0.3,
@@ -110,7 +110,7 @@ export default function Home() {
       });
 
       button.addEventListener("mouseleave", () => {
-        gsap.to(button, {
+        void gsap.to(button, {
           x: 0,
           y: 0,
           duration: 0.5,

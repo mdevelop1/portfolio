@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 export default function CaseStudies() {
   const imageRef = useRef<HTMLDivElement>(null);
-  const visitBtnRef = useRef<HTMLButtonElement>(null);
+  const visitBtnRef = useRef<HTMLAnchorElement>(null);
   const caseStudyBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -233,7 +233,7 @@ export default function CaseStudies() {
     const gsap = window.gsap;
 
     // Reveal animations for content
-    gsap.from('.case-studies-tag, .case-studies-title, .case-studies-description, .case-studies-badges, .case-studies-role, .case-studies-buttons, .case-studies-meta, .case-studies-metrics', {
+    void gsap.from('.case-studies-tag, .case-studies-title, .case-studies-description, .case-studies-badges, .case-studies-role, .case-studies-buttons, .case-studies-meta, .case-studies-metrics', {
       y: 40,
       opacity: 0,
       stagger: 0.1,
@@ -252,7 +252,7 @@ export default function CaseStudies() {
           const y = (e.clientY - top) / height - 0.5;
           const dx = x * 10;
           const dy = y * 10;
-          gsap.to(img, {
+          void gsap.to(img, {
             scale: 1.02,
             x: dx,
             y: dy,
@@ -261,7 +261,7 @@ export default function CaseStudies() {
           });
         });
         imageEl.addEventListener('mouseleave', () => {
-          gsap.to(img, {
+          void gsap.to(img, {
             scale: 1,
             x: 0,
             y: 0,
@@ -273,18 +273,16 @@ export default function CaseStudies() {
     }
 
     // Magnetic button effect
-      const makeMagnetic = (el: HTMLElement) => {
+    const makeMagnetic = (el: HTMLElement) => {
       const wrapper = el.parentElement;
-      const makeMagnetic = (el: HTMLElement) => {
-      const wrapper = el.parentElement;
-      if (!wrapper) return; // add this guard
+      if (!wrapper) return;
       wrapper.addEventListener('mousemove', (e) => {
         const { left, top, width, height } = wrapper.getBoundingClientRect();
         const x = (e.clientX - left) / width - 0.5;
         const y = (e.clientY - top) / height - 0.5;
         const dx = x * 15;
         const dy = y * 15;
-        gsap.to(el, {
+        void gsap.to(el, {
           x: dx,
           y: dy,
           duration: 0.5,
@@ -292,7 +290,7 @@ export default function CaseStudies() {
         });
       });
       wrapper.addEventListener('mouseleave', () => {
-        gsap.to(el, {
+        void gsap.to(el, {
           x: 0,
           y: 0,
           duration: 0.6,
@@ -305,10 +303,13 @@ export default function CaseStudies() {
 
     // Counter animation for metrics
     const counters = document.querySelectorAll('.case-studies-metric-value');
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
+    counters.forEach((counter) => {
+      const htmlCounter = counter as HTMLElement;
+      const targetAttr = counter.getAttribute('data-target');
+      if (!targetAttr) return;
+      const target = parseInt(targetAttr);
       if (isNaN(target)) return;
-      gsap.from(counter, {
+      void gsap.from(counter, {
         innerText: 0,
         duration: 2.5,
         ease: 'power3.out',
@@ -316,7 +317,7 @@ export default function CaseStudies() {
         onUpdate: function() {
           const val = this.targets()[0]._gsap.target.innerText;
           const decimals = target % 1 === 0 ? 0 : 1;
-          counter.innerText = parseFloat(val).toFixed(decimals);
+          htmlCounter.innerText = parseFloat(val).toFixed(decimals);
         }
       });
     });
