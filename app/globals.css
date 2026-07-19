@@ -657,7 +657,7 @@ nav {
   border: 2px solid #8b5cf6;
   border-radius: 50%;
   position: absolute;
-  animation: pulse 3s ease-in-out infinite;
+  animation: morphRotate 8s ease-in-out infinite;
 }
 
 .contact-circle-2 {
@@ -666,16 +666,199 @@ nav {
   border: 2px solid #ec4899;
   border-radius: 50%;
   position: absolute;
-  animation: pulse 3s ease-in-out infinite 1s;
+  animation: morphRotate 6s ease-in-out infinite reverse;
+}
+
+@keyframes morphRotate {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 50%;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.9);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.05);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+/* FLOATING SHAPES */
+.floating-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid #8b5cf6;
+  animation: floatTriangle 6s ease-in-out infinite;
+}
+
+.shape-square {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ec4899;
+  animation: floatSquare 8s ease-in-out infinite;
+}
+
+.shape-diamond {
+  width: 50px;
+  height: 50px;
+  background: #3b82f6;
+  transform: rotate(45deg);
+  animation: floatDiamond 7s ease-in-out infinite;
+}
+
+.shape-circle-small {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #8b5cf6;
+  border-radius: 50%;
+  animation: floatCircle 5s ease-in-out infinite;
+}
+
+.shape-cross {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: floatCross 9s ease-in-out infinite;
+}
+
+.shape-cross::before,
+.shape-cross::after {
+  content: '';
+  position: absolute;
+  background: #ec4899;
+}
+
+.shape-cross::before {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.shape-cross::after {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes floatTriangle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+}
+
+@keyframes floatSquare {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(0) rotate(180deg);
+  }
+  75% {
+    transform: translateY(20px) rotate(270deg);
+  }
+}
+
+@keyframes floatDiamond {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(225deg) scale(1.2);
+  }
+}
+
+@keyframes floatCircle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes floatCross {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-25px) rotate(45deg);
+  }
+  66% {
+    transform: translateY(15px) rotate(-45deg);
+  }
 }
 
 /* FOOTER */
 footer {
-  padding: 60px 0;
+  padding: 80px 0;
+  border-top: 1px solid #000;
+  background: transparent;
+}
+
+.footer-content {
   display: flex;
   justify-content: space-between;
-  text-transform: uppercase;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand span {
   font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #8b5cf6;
+}
+
+.footer-cta {
+  display: flex;
 }
 
 /* MEDIA QUERIES */
@@ -826,6 +1009,26 @@ footer {
   .stack span {
     padding: 12px 20px;
     font-size: 12px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-cta {
+    width: 100%;
+  }
+
+  .footer-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
