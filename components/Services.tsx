@@ -3,7 +3,6 @@ export default function Services() {
     <>
       <div className="section-head">
         <h2 className="title">Usługi</h2>
-        <span className="small">01 / Co budujemy</span>
       </div>
       <div className="divider"></div>
 

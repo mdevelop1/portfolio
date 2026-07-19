@@ -8,6 +8,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Packages from "@/components/Packages";
 import About from "@/components/About";
+import Benefits from "@/components/Benefits";
 import CaseStudies from "@/components/CaseStudies";
 import Maintenance from "@/components/Maintenance";
 import FAQ from "@/components/FAQ";
@@ -190,6 +191,10 @@ export default function Home() {
 
       <section id="about">
         <About />
+      </section>
+
+      <section id="benefits" className="transparent-background">
+        <Benefits />
       </section>
 
       <section id="work">

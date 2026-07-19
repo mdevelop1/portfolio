@@ -52,7 +52,6 @@ export default function FAQ() {
     <>
       <div className="section-head">
         <h2 className="title">FAQ</h2>
-        <span className="small">05 / Pytania</span>
       </div>
       <div className="divider"></div>
 

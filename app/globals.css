@@ -42,6 +42,15 @@
   transform: translateY(-5px);
 }
 
+/* TRANSPARENT BACKGROUND FOR SPECIFIC SECTIONS */
+.transparent-background {
+  background: transparent !important;
+}
+
+.transparent-background::before {
+  background: transparent !important;
+}
+
 /* NAV ACTIVE STATE */
 .nav-links a.active {
   color: #8b5cf6;
@@ -578,6 +587,54 @@ nav {
   text-transform: uppercase;
 }
 
+/* BENEFITS */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.benefit-card {
+  border: 1px solid #000;
+  padding: 40px 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  background: transparent;
+}
+
+.benefit-card:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.benefit-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.benefit-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.benefit-card:hover p {
+  color: #ccc;
+}
+
 /* ABOUT */
 .about-content {
   display: grid;
@@ -1009,6 +1066,14 @@ footer {
   .stack span {
     padding: 12px 20px;
     font-size: 12px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-card {
+    padding: 30px 20px;
   }
 
   .footer-content {

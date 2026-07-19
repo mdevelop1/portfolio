@@ -5,7 +5,6 @@ export default function About() {
     <>
       <div className="section-head">
         <h2 className="title">O nas</h2>
-        <span className="small">04 / O Aurexon</span>
       </div>
       <div className="divider"></div>
 
@@ -22,10 +21,6 @@ export default function About() {
           </p>
 
           <div className="about-stats">
-            <div className="stat-item">
-              <div className="stat-number">2026</div>
-              <div className="stat-label">Założono</div>
-            </div>
             <div className="stat-item">
               <div className="stat-number">100%</div>
               <div className="stat-label">Własny kod</div>

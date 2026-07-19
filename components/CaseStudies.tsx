@@ -335,7 +335,6 @@ export default function CaseStudies() {
     <>
       <div className="section-head">
         <h2 className="title">Wybrane realizacje</h2>
-        <span className="small">03 / Projekty</span>
       </div>
       <div className="divider"></div>
 
@@ -343,7 +342,6 @@ export default function CaseStudies() {
         <div className="case-studies-content">
           <div>
             <span className="case-studies-tag">01</span>
-            <span className="case-studies-tag">2024</span>
             <span className="case-studies-tag">Zakończono</span>
           </div>
           <h1 className="case-studies-title">Spool3d.site</h1>
@@ -396,7 +394,6 @@ export default function CaseStudies() {
         <div className="case-studies-content">
           <div>
             <span className="case-studies-tag">02</span>
-            <span className="case-studies-tag">2024</span>
             <span className="case-studies-tag">Zakończono</span>
           </div>
           <h1 className="case-studies-title">Restauracja Aurelia</h1>

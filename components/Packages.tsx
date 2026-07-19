@@ -5,7 +5,6 @@ export default function Packages() {
     <>
       <div className="section-head">
         <h2 className="title">Pakiety</h2>
-        <span className="small">02 / Inwestycja</span>
       </div>
       <div className="divider"></div>
 

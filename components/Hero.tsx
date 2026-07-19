@@ -3,7 +3,6 @@ export default function Hero() {
     <>
       <div className="hero-top">
         <span>Premium studio oprogramowania</span>
-        <span>2026 / Aurexon</span>
       </div>
 
         <h1 className="hero-title">
