@@ -11,7 +11,7 @@ export default function Services() {
         <div className="card">
           <div className="card-number">01</div>
           <div className="service-icon">WEB</div>
-          <h3>Premiumowe strony</h3>
+          <h3>Premium strony</h3>
           <p>
             Strona docelowa, strony firmowe, redesign oraz strony sprzedażowe.
             Next.js, React, Tailwind, GSAP.
