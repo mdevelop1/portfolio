@@ -388,6 +388,56 @@ export default function CaseStudies() {
           <img src="/screen1.png" alt="Zrzut ekranu Spool3d.site" />
         </div>
       </div>
+
+      <div className="case-studies-container">
+        <div className="case-studies-image" ref={imageRef}>
+          <img src="/screen2.png" alt="Zrzut ekranu Restauracja Aurelia" />
+        </div>
+        <div className="case-studies-content">
+          <div>
+            <span className="case-studies-tag">02</span>
+            <span className="case-studies-tag">2024</span>
+            <span className="case-studies-tag">Zakończono</span>
+          </div>
+          <h1 className="case-studies-title">Restauracja Aurelia</h1>
+          <p className="case-studies-description">
+            Strona www dla restauracji premium "Aurelia" zlokalizowanej w Warszawie. Projekt zrealizowany w Next.js 14 z TypeScript, z naciskiem na elegancki design, płynne animacje i pełną responsywność.
+          </p>
+          <div className="case-studies-badges">
+            <span className="case-studies-badge">Next.js 14</span>
+            <span className="case-studies-badge">React 18</span>
+            <span className="case-studies-badge">TypeScript</span>
+            <span className="case-studies-badge">Framer Motion</span>
+            <span className="case-studies-badge">Netlify</span>
+          </div>
+          <div className="case-studies-role">
+            <span>Frontend</span>
+            <span>UI/UX</span>
+            <span>SEO</span>
+          </div>
+          <div className="case-studies-buttons">
+            <a
+              href="https://aureliawarsaw.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              ref={visitBtnRef}
+              className="case-studies-btn-primary"
+            >
+              Odwiedź stronę
+            </a>
+          </div>
+          <div className="case-studies-meta">
+            <div>
+              <span className="case-studies-meta-label">Harmonogram</span>
+              <span className="case-studies-meta-value">6 tygodni</span>
+            </div>
+            <div>
+              <span className="case-studies-meta-label">Stack</span>
+              <span className="case-studies-meta-value">Next.js, TypeScript, Framer Motion</span>
+            </div>
+      </div>
+        </div>
+      </div>
     </>
   );
 }

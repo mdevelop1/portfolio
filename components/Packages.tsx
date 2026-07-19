@@ -13,7 +13,7 @@ export default function Packages() {
         <div className="card">
           <div className="tag">START</div>
           <h3>Strona docelowa</h3>
-          <div className="price">200-1500</div>
+          <div className="price">Od 300PLN</div>
           <p>
             ✓ Premiumowa strona docelowa<br />
             ✓ Responsywny projekt<br />
@@ -27,7 +27,7 @@ export default function Packages() {
         <div className="card">
           <div className="tag">NAJPOPULARNIEJSZY</div>
           <h3>Biznes</h3>
-          <div className="price">500-4500</div>
+          <div className="price">Od 500PLN</div>
           <p>
             ✓ Strona firmowa 5-8 podstron<br />
             ✓ CMS<br />
@@ -41,7 +41,7 @@ export default function Packages() {
         <div className="card">
           <div className="tag">PREMIUM</div>
           <h3>Niestandardowe</h3>
-          <div className="price">1000-7500</div>
+          <div className="price">Od 1000PLN</div>
           <p>
             ✓ Dedykowany system<br />
             ✓ Zaawansowany UX<br />
@@ -68,7 +68,7 @@ export default function Packages() {
         <div className="card">
           <div className="tag">AKTUALIZACJA</div>
           <h3>Ulepszmy twoją stronę</h3>
-          <div className="price">299-599</div>
+          <div className="price">299-599PLN</div>
           <p>
             ✓ Audyt istniejącej strony<br />
             ✓ Propozycje UX/UI<br />
@@ -81,7 +81,7 @@ export default function Packages() {
         <div className="card">
           <div className="tag">POPRAWKI</div>
           <h3>Poprawki</h3>
-          <div className="price">199</div>
+          <div className="price">199PLN</div>
           <p>
             ✓ Poprawka błędów technicznych<br />
             ✓ Aktualizacja treści<br />
