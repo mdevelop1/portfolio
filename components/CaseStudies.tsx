@@ -43,7 +43,7 @@ export default function CaseStudies() {
         gap: 3rem;
         margin: 2.5rem 0;
         font-size: 1rem;
-        color: #555;
+        color: rgba(255, 255, 255, 0.6);
       }
       .case-studies-meta div {
         display: flex;
@@ -55,16 +55,18 @@ export default function CaseStudies() {
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-bottom: 0.25rem;
+        color: rgba(255, 255, 255, 0.6);
       }
       .case-studies-meta-value {
         font-weight: 800;
+        color: #ffffff;
       }
       .case-studies-metrics {
         display: flex;
         gap: 3rem;
         margin-top: 3rem;
         padding-top: 2rem;
-        border-top: 1px solid #eee;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
       .case-studies-metric {
         display: flex;
@@ -77,27 +79,28 @@ export default function CaseStudies() {
         line-height: 1;
         letter-spacing: -0.02em;
         margin-bottom: 0.5rem;
+        color: #ffffff;
       }
       .case-studies-metric-label {
         font-size: 1rem;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: #555;
+        color: rgba(255, 255, 255, 0.6);
       }
       .case-studies-btn-primary {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         padding: 1rem 2rem;
-        background: #000;
-        color: #fff;
+        background: #ffffff;
+        color: #0a0a0f;
         text-decoration: none;
         font-weight: 800;
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        border: none;
+        border: 1px solid #ffffff;
         cursor: pointer;
         position: relative;
         overflow: hidden;
@@ -123,13 +126,13 @@ export default function CaseStudies() {
         gap: 0.5rem;
         padding: 1rem 2rem;
         background: transparent;
-        color: #000;
+        color: #ffffff;
         text-decoration: none;
         font-weight: 800;
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        border: 1px solid #000;
+        border: 1px solid rgba(255, 255, 255, 0.3);
         cursor: pointer;
         position: relative;
         overflow: hidden;
@@ -156,8 +159,8 @@ export default function CaseStudies() {
         letter-spacing: 0.5px;
         padding: 0.25rem 0.75rem;
         border-radius: 4px;
-        background: rgba(0,0,0,0.05);
-        color: #000;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.8);
         margin-right: 0.75rem;
       }
       .case-studies-title {
@@ -167,12 +170,13 @@ export default function CaseStudies() {
         letter-spacing: -0.02em;
         margin: 1.5rem 0;
         text-transform: uppercase;
+        color: #ffffff;
       }
       .case-studies-description {
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 1.5rem;
-        color: #111;
+        color: rgba(255, 255, 255, 0.8);
       }
       .case-studies-badges {
         display: flex;
@@ -186,9 +190,9 @@ export default function CaseStudies() {
         text-transform: uppercase;
         letter-spacing: 0.5px;
         padding: 0.35rem 0.75rem;
-        border: 1px solid #000;
+        border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 4px;
-        color: #000;
+        color: rgba(255, 255, 255, 0.9);
       }
       .case-studies-role {
         display: flex;
@@ -199,12 +203,13 @@ export default function CaseStudies() {
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: #555;
+        color: rgba(255, 255, 255, 0.6);
       }
       .case-studies-role span {
-        background: #f5f5f5;
+        background: rgba(255, 255, 255, 0.05);
         padding: 0.35rem 0.75rem;
         border-radius: 4px;
+        color: rgba(255, 255, 255, 0.8);
       }
       @media (max-width: 900px) {
         .case-studies-container {
