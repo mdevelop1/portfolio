@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://aurexon.pl"),
 
   title: {
-    default: "Aurexon — Premium Web Development & Digital Experiences",
+    default: "Aurexon - Premium Web Development & Digital Experiences",
     template: "%s | Aurexon",
   },
 
