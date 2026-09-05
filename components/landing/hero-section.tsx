@@ -87,7 +87,7 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-24 sm:py-28 lg:py-40">
-        <div className="max-w-full lg:max-w-[55%]">
+        <div className="max-w-full lg:max-w-none">
         {/* Eyebrow */}
         <div 
           className={`mb-6 sm:mb-8 transition-all duration-700 ${
@@ -108,7 +108,7 @@ export function HeroSection() {
             }`}
           >
             <span className="block">Tworzę produkty,</span>
-            <span className="block">
+            <span className="block lg:whitespace-nowrap lg:text-[clamp(2rem,6vw,5rem)]">
               które{" "}
               <span key={phraseIndex} className="inline-block align-baseline">
                 <RainbowPhrase phrase={animatedPhrases[phraseIndex]} />
