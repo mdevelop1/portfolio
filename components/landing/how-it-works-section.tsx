@@ -70,7 +70,7 @@ export function HowItWorksSection() {
     >
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.02] blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header — titre + image cerisier */}
         <div className="relative mb-0 lg:mb-0 grid lg:grid-cols-2 gap-4 lg:gap-12 items-end">
           {/* Titre colonne gauche */}
@@ -82,7 +82,7 @@ export function HowItWorksSection() {
               </span>
             </div>
             
-            <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
+            <h2 className={`text-4xl sm:text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
               <span className="block">Pomysł.</span>
@@ -92,7 +92,7 @@ export function HowItWorksSection() {
           </div>
 
           {/* Image cerisier — se colle en bas sur les blocs */}
-          <div className={`relative h-[320px] lg:h-[640px] overflow-hidden transition-all duration-1000 delay-200 ${
+          <div className={`relative h-[220px] sm:h-[320px] lg:h-[640px] overflow-hidden transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <img
@@ -107,13 +107,13 @@ export function HowItWorksSection() {
         </div>
 
         {/* Horizontal Steps Layout */}
-        <div className="grid lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {steps.map((step, index) => (
             <button
               key={step.number}
               type="button"
               onClick={() => setActiveStep(index)}
-              className={`relative text-left p-8 lg:p-12 border transition-all duration-500 ${
+              className={`relative text-left p-6 sm:p-8 lg:p-12 border transition-all duration-500 ${
                 activeStep === index 
                   ? "bg-[#000000] border-white/60" 
                   : "bg-[#000000] border-white/25 hover:border-white/50"
@@ -121,7 +121,7 @@ export function HowItWorksSection() {
             >
               {/* Step number with animated line */}
               <div className="flex items-center gap-4 mb-8">
-                <span className={`text-4xl font-display transition-colors duration-300 ${
+                <span className={`text-3xl sm:text-4xl font-display transition-colors duration-300 ${
                   activeStep === index ? "text-[#eca8d6]" : "text-white/20"
                 }`}>
                   {step.number}
@@ -134,15 +134,15 @@ export function HowItWorksSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-3xl lg:text-4xl font-display mb-2">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display mb-2">
                 {step.title}
               </h3>
-              <span className="text-xl text-white/40 font-display block mb-6">
+              <span className="text-lg sm:text-xl text-white/40 font-display block mb-6">
                 {step.subtitle}
               </span>
 
               {/* Description */}
-              <p className={`text-white/60 leading-relaxed transition-opacity duration-300 ${
+              <p className={`text-sm sm:text-base text-white/60 leading-relaxed transition-opacity duration-300 ${
                 activeStep === index ? "opacity-100" : "opacity-60"
               }`}>
                 {step.description}

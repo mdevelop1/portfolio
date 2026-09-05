@@ -59,10 +59,10 @@ export function DevelopersSection() {
       </div>
 
       {/* All text content sits on top */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header — Full width */}
         <div
-          className={`mb-16 transition-all duration-700 ${
+          className={`mb-10 sm:mb-16 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -70,7 +70,7 @@ export function DevelopersSection() {
             <span className="w-8 h-px bg-foreground/30" />
             O mnie
           </span>
-          <h2 className="text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9]">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9]">
             Buduję rzeczy,
             <br />
             <span className="text-muted-foreground">które mają cel.</span>
@@ -79,14 +79,14 @@ export function DevelopersSection() {
 
         {/* Description + Features — left half only */}
         <div
-          className={`max-w-[50%] transition-all duration-700 delay-100 ${
+          className={`w-full max-w-full lg:max-w-[50%] transition-all duration-700 delay-100 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-md">
+          <p className="text-base sm:text-xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-md">
             Nazywam się Mateusz Dymowski. Jestem full stack developerem i pomagam zamieniać pomysły oraz problemy biznesowe w użyteczne, dobrze wykonane oprogramowanie.
           </p>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {features.map((feature, index) => (
               <div
                 key={feature.title}
@@ -95,8 +95,8 @@ export function DevelopersSection() {
                 }`}
                 style={{ transitionDelay: `${index * 50 + 200}ms` }}
               >
-                <h3 className="font-medium mb-1">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <h3 className="font-medium mb-1 text-base sm:text-lg">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>

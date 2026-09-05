@@ -86,31 +86,31 @@ export function HeroSection() {
         ))}
       </div>
       
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
-        <div className="lg:max-w-[55%]">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-24 sm:py-28 lg:py-40">
+        <div className="max-w-full lg:max-w-[55%]">
         {/* Eyebrow */}
         <div 
-          className={`mb-8 transition-all duration-700 ${
+          className={`mb-6 sm:mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-white/60">
-            <span className="w-8 h-px bg-white/30" />
-            Full stack developer · web, mobile i desktop
+          <span className="inline-flex items-center gap-3 text-[11px] sm:text-sm font-mono text-white/60 leading-relaxed">
+            <span className="w-8 h-px bg-white/30 shrink-0" />
+            <span className="break-words">Full stack developer · web, mobile i desktop</span>
           </span>
         </div>
         
         {/* Main headline */}
-        <div className="mb-12">
+        <div className="mb-10 sm:mb-12">
           <h1 
-            className={`text-left text-[clamp(2rem,6vw,7rem)] font-display leading-[0.92] tracking-tight text-white transition-all duration-1000 ${
+            className={`text-left text-[clamp(2.5rem,9vw,7rem)] font-display leading-[0.9] tracking-[-0.04em] text-white transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block whitespace-nowrap">Tworzę produkty,</span>
-            <span className="block whitespace-nowrap">
+            <span className="block">Tworzę produkty,</span>
+            <span className="block">
               które{" "}
-              <span key={phraseIndex} className="inline-block">
+              <span key={phraseIndex} className="inline-block align-baseline">
                 <RainbowPhrase phrase={animatedPhrases[phraseIndex]} />
               </span>
             </span>
@@ -121,19 +121,19 @@ export function HeroSection() {
       
       {/* Stats — 3 metrics static, no auto-scroll */}
       <div 
-        className={`absolute bottom-12 left-0 right-0 px-6 lg:px-12 transition-all duration-700 delay-500 ${
+        className={`absolute bottom-6 sm:bottom-12 left-0 right-0 px-4 sm:px-6 lg:px-12 transition-all duration-700 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-start gap-4 sm:gap-8 lg:gap-20">
           {[
             { value: "web", label: "aplikacje i platformy" },
             { value: "mobile", label: "iOS oraz Android" },
             { value: "automate", label: "procesy bez rutyny" },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-2">
-              <span className="text-3xl lg:text-4xl font-display text-white">{stat.value}</span>
-              <span className="text-xs text-white/50 leading-tight">
+            <div key={stat.label} className="flex flex-col gap-1 sm:gap-2 max-w-[150px]">
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-display text-white leading-none">{stat.value}</span>
+              <span className="text-[10px] sm:text-xs text-white/50 leading-tight break-words">
                 {stat.label}
               </span>
             </div>

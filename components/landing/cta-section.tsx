@@ -31,7 +31,7 @@ export function CtaSection() {
 
   return (
     <section id="contact" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div
           className={`relative border border-foreground transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -46,25 +46,25 @@ export function CtaSection() {
             }}
           />
           
-          <div className="relative z-10 px-8 lg:px-16 py-16 lg:py-24">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="relative z-10 px-5 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-24">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
               {/* Left content */}
-              <div className="flex-1">
-                <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
+              <div className="flex-1 w-full">
+                <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-6 lg:mb-8 leading-[0.95]">
                   Zbudujmy coś,
                   <br />
                   co działa.
                 </h2>
 
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-xl">
                   Masz pomysł na aplikację, system dla firmy albo automatyzację procesu? Opowiedz mi o nim, a przełożymy go na konkretny plan działania.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
                   <Button
                     asChild
                     size="lg"
-                    className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
+                    className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                   >
                     <a href="mailto:contact@aurexon.pl">
                       Zacznijmy rozmowę
@@ -75,13 +75,13 @@ export function CtaSection() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
+                    className="w-full sm:w-auto h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
                   >
                     <a href="mailto:contact@aurexon.pl">Porozmawiajmy o projekcie</a>
                   </Button>
                 </div>
 
-                <p className="text-sm text-muted-foreground mt-8 font-mono">
+                <p className="text-sm text-muted-foreground mt-8 font-mono break-words">
                   Dostępny dla nowych projektów i współprac
                 </p>
               </div>

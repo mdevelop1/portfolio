@@ -70,9 +70,9 @@ export function FeaturesSection() {
       ref={sectionRef}
       className="relative py-24 lg:py-32 overflow-hidden"
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header - Full width with diagonal layout */}
-        <div className="relative mb-24 lg:mb-32">
+        <div className="relative mb-12 sm:mb-20 lg:mb-32">
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
@@ -80,7 +80,7 @@ export function FeaturesSection() {
                 Usługi
               </span>
               <h2
-                className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
+                className={`text-4xl sm:text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
@@ -93,26 +93,26 @@ export function FeaturesSection() {
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
           {/* First service */}
           <article
             onMouseEnter={() => setActiveFeature(0)}
-            className={`lg:col-span-4 min-h-[280px] p-8 lg:p-10 border border-foreground/10 bg-black transition-all duration-700 hover:border-foreground/40 hover:-translate-y-1 ${
+            className={`lg:col-span-4 min-h-[220px] sm:min-h-[260px] lg:min-h-[280px] p-6 sm:p-8 lg:p-10 border border-foreground/10 bg-black transition-all duration-700 hover:border-foreground/40 hover:-translate-y-1 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
           >
-            <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center justify-between mb-8 sm:mb-12">
               <span className="font-mono text-sm text-muted-foreground">{features[0].number}</span>
               <span className="w-2 h-2 rounded-full bg-foreground/30" />
             </div>
-            <h3 className="text-2xl lg:text-3xl font-display mb-4">{features[0].title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{features[0].description}</p>
+            <h3 className="text-2xl lg:text-3xl font-display mb-3 sm:mb-4">{features[0].title}</h3>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{features[0].description}</p>
           </article>
 
           {/* Service introduction */}
-          <div className="lg:col-span-8 min-h-[280px] border border-foreground/10 flex items-stretch overflow-hidden">
-            <div className="relative z-10 flex-1 p-8 lg:p-10 flex items-end bg-background">
-              <p className="max-w-xl text-2xl lg:text-4xl font-display leading-tight text-muted-foreground">
+          <div className="lg:col-span-8 min-h-[220px] sm:min-h-[260px] lg:min-h-[280px] border border-foreground/10 flex flex-col md:flex-row items-stretch overflow-hidden">
+            <div className="relative z-10 flex-1 p-6 sm:p-8 lg:p-10 flex items-end bg-background">
+              <p className="max-w-xl text-xl sm:text-2xl lg:text-4xl font-display leading-tight text-muted-foreground">
                 Tworzę oprogramowanie dopasowane do Twojego biznesu — od pierwszej koncepcji, przez development, aż po stabilne wdrożenie.
               </p>
             </div>
@@ -132,17 +132,17 @@ export function FeaturesSection() {
             <article
               key={feature.number}
               onMouseEnter={() => setActiveFeature(index + 1)}
-              className={`lg:col-span-4 min-h-[280px] p-8 lg:p-10 border border-foreground/10 bg-background transition-all duration-700 hover:border-foreground/40 hover:-translate-y-1 ${
+              className={`lg:col-span-4 min-h-[220px] sm:min-h-[260px] lg:min-h-[280px] p-6 sm:p-8 lg:p-10 border border-foreground/10 bg-background transition-all duration-700 hover:border-foreground/40 hover:-translate-y-1 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${(index + 1) * 80}ms` }}
             >
-              <div className="flex items-center justify-between mb-12">
+              <div className="flex items-center justify-between mb-8 sm:mb-12">
                 <span className="font-mono text-sm text-muted-foreground">{feature.number}</span>
                 <span className="w-2 h-2 rounded-full bg-foreground/30" />
               </div>
-              <h3 className="text-2xl lg:text-3xl font-display mb-4">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              <h3 className="text-2xl lg:text-3xl font-display mb-3 sm:mb-4">{feature.title}</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{feature.description}</p>
             </article>
           ))}
         </div>
